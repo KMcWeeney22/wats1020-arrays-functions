@@ -16,14 +16,25 @@
 // This portion of the script is meant to call and display the result of your Function.
 // You do not need to change the following lines, but you may change them if you 
 // are experimenting further or pursuing stretch goals.
+
+
 "use strict";
+// original text that were using truncation on
 var originalText = "There are two hard things in Computer Science: Cach invalidation, naming things, and off-by-one errors.";
+// the maximum amount of words we want for our truncation
 var wordLimit = 8;
+// function taking two arguments(original text and the total words in that text) and turning it into an array
+// also using that array to find the number of words to remove to create the truncated text(shortText)
 var truncateWords = function(longText, numWords){
+    //split into an array
     var originalTextArray = longText.split(" ");
+    // find the number of words in the array
     numWords = originalTextArray.length;
+    // number or words - word limit = how many words need to be removed
     var remove = numWords - wordLimit;
-    var shortened = originalTextArray.splice(wordLimit, (numWords - wordLimit), '...');
+    // word limit = where to start on string. then remove variable will tell how many words to remove and then adding "..." to the end
+    var shortened = originalTextArray.splice(wordLimit, (remove), '...');
+    // joing everything backtogether to create the short version on the original string
     var shortText = originalTextArray.join(' ');   
     console.log("Number of words in original text: " + numWords);
     console.log("Number of Words to remove: " + remove);
