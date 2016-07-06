@@ -41,7 +41,36 @@ var truncateWords = function(longText, numWords){
 var originalText = "There are two hard things in Computer Science: Cach invalidation, naming things, and off-by-one errors.";
 // the maximum amount of words we want for our truncation
 var wordLimit = 8;
+console.log("Truncate Words!:")
 var shortText = truncateWords(originalText, wordLimit)
-    console.log('originalText: ' + originalText);
-    console.log('shortText: ' + shortText);
+console.log('originalText: ' + originalText);
+console.log('shortText: ' + shortText);
+console.log(' ');
 
+"use strict";
+// write a function turning a string into an array, find the original number of characters in the array.
+// Then remove the characters that surpass the character limit and return that shorter string to create our truncated function.
+var truncateCharacters = function (longText, maxCharacters){
+    // turn presented text into an array
+    var truncateCharactersArray = longText.split('');
+    //find the character length of the array
+    var charLength = truncateCharactersArray.length;
+    console.log("Characters in the text: " + truncateCharactersArray.length);
+    // find the number of characters to remove from the original string
+    var characterRemoval = charLength - maxCharacters;
+    console.log("Number of characters to remove: " + characterRemoval);
+    // splice the string so it starts at the character limit and removes the excess characters and adds an '...' to the end of the string
+    truncateCharactersArray.splice(maxCharacters, characterRemoval, '...');
+    // finally join the array back into a string so it creates our truncated short text.
+    var finalText = truncateCharactersArray.join('');
+  
+    return finalText;
+}
+// original text that were using truncation on
+var originalText = "There are two hard things in Computer Science: Cach invalidation, naming things, and off-by-one errors.";
+//max characters wanted in our new string
+var characterLimit = 46;
+console.log("Truncate Characters!:")
+var shortText = truncateCharacters(originalText, characterLimit);
+console.log('originalText: ' + originalText);
+console.log('shortText: ' + shortText);
